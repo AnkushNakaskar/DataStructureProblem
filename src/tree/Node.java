@@ -130,4 +130,47 @@ public class Node {
 
         return root;
     }
+
+    /*
+     1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+
+     */
+
+    public static Node createNotBinarySearchTreeMirror() {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.left.right = new Node(4);
+        root.left.left = new Node(3);
+
+        root.right = new Node(2);
+        root.right.left = new Node(4);
+        root.right.right = new Node(3);
+
+        return root;
+    }
+
+    /*
+
+     1
+   / \
+  2   2
+   \   \
+   3    3
+
+     */
+    public static Node createNotBinarySearchTreeNotMirror() {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.left.right = new Node(3);
+
+        root.right = new Node(2);
+        root.right.right = new Node(3);
+
+        return root;
+    }
 }
+
