@@ -1,12 +1,10 @@
 package tree.medium;
 
-import tree.Node;
-
-import javax.swing.tree.TreeNode;
+import tree.TreeNode;
 
 public class CheckIFMirrorTree {
 
-    public static boolean checkMirror(Node p, Node q) {
+    public static boolean checkMirror(TreeNode p, TreeNode q) {
         if (p == null && q != null) {
             return false;
         }
@@ -14,7 +12,7 @@ public class CheckIFMirrorTree {
             return false;
         }
         if(p!=null && q!=null){
-            if(p.data!=q.data){
+            if(p.val !=q.val){
                 return false;
             }
             return checkMirror(p.left,q.right) && checkMirror(p.right,q.left);
@@ -22,7 +20,7 @@ public class CheckIFMirrorTree {
         return true;
     }
 
-    public boolean isSymmetric(Node root) {
+    public boolean isSymmetric(TreeNode root) {
         if(root!=null){
             return checkMirror(root.left,root.right);
         }
@@ -30,8 +28,8 @@ public class CheckIFMirrorTree {
     }
 
     public static void main(String[] args) {
-        Node node =Node.createNotBinarySearchTreeNotMirror();
-        System.out.println(checkMirror(node.left,node.right));
+        TreeNode treeNode = TreeNode.createNotBinarySearchTreeNotMirror();
+        System.out.println(checkMirror(treeNode.left, treeNode.right));
 
 
     }

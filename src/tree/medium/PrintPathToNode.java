@@ -1,22 +1,22 @@
 package tree.medium;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class PrintPathToNode {
 
-    public static boolean printPath(Node root,int data){
+    public static boolean printPath(TreeNode root, int data){
         if(root==null){
             return false;
         }
-        if(root.data==data){
-            System.out.println("Sample:: "+root.data);
+        if(root.val ==data){
+            System.out.println("Sample:: "+root.val);
             return true;
         }
 
 
         if(root!=null){
             if( printPath(root.left,data) || printPath(root.right,data) ){
-                System.out.println(root.data);
+                System.out.println(root.val);
                 return true;
             }
         }
@@ -24,6 +24,6 @@ public class PrintPathToNode {
     }
 
     public static void main(String[] args) {
-        printPath(Node.createBinaryTree3(),6);
+        printPath(TreeNode.createBinaryTree3(),6);
     }
 }

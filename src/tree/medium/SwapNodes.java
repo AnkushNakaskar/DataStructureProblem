@@ -1,21 +1,21 @@
 package tree.medium;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class SwapNodes {
-    public static void swapNodes(Node root,Node start){
+    public static void swapNodes(TreeNode root, TreeNode start){
         if(root!=null){
             swapNodes(root.left,start);
             swapNodes(root.right,start);
-            Node tmp =root.left;
+            TreeNode tmp =root.left;
             root.left=root.right;
             root.right=tmp;
         }
     }
 
     public static void main(String[] args) {
-        Node start=Node.createBinaryTree2();
-        Node root=Node.createBinaryTree2();
+        TreeNode start= TreeNode.createBinaryTree2();
+        TreeNode root= TreeNode.createBinaryTree2();
         System.out.println(root);
         swapNodes(start,start);
         System.out.println(start);

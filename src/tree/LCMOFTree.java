@@ -1,15 +1,15 @@
 package tree;
 
 public class LCMOFTree {
-    public static Node lca(Node root, int v1, int v2) {
+    public static TreeNode lca(TreeNode root, int v1, int v2) {
         if (root == null) {
             return null;
         }
-        if (root.data == v1 || root.data == v2) {
+        if (root.val == v1 || root.val == v2) {
             return root;
         }
-        Node left = lca(root.left, v1, v2);
-        Node right = lca(root.right, v1, v2);
+        TreeNode left = lca(root.left, v1, v2);
+        TreeNode right = lca(root.right, v1, v2);
         if (left != null && right != null) {
             return root;
         }
@@ -18,8 +18,8 @@ public class LCMOFTree {
 
 
     public static void main(String[] args) {
-        System.out.println(lca(Node.createBinaryTree2(), 10, 15));
-//        lca(Node.createBinaryTree2(), 10, 15);//13,17
+        System.out.println(lca(TreeNode.createBinaryTree2(), 10, 15));
+//        lca(TreeNode.createBinaryTree2(), 10, 15);//13,17
 
     }
 }

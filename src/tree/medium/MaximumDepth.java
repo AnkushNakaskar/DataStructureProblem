@@ -1,12 +1,12 @@
 package tree.medium;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class MaximumDepth {
 
     private static Integer finalValue=0;
 
-    public static void maxDepth(Node root, int depth) {
+    public static void maxDepth(TreeNode root, int depth) {
 
         if (root != null) {
             maxDepth(root.left, depth++);
@@ -23,18 +23,18 @@ public class MaximumDepth {
     }
 
     public static void main(String[] args) {
-        Node node = new Node(3);
-        node.left = new Node(9);
-        node.right = new Node(20);
-        node.right.left = new Node(15);
-        node.right.right = new Node(7);
-//        System.out.println(maxDepth(node,0));
+        TreeNode treeNode = new TreeNode(3);
+        treeNode.left = new TreeNode(9);
+        treeNode.right = new TreeNode(20);
+        treeNode.right.left = new TreeNode(15);
+        treeNode.right.right = new TreeNode(7);
+//        System.out.println(maxDepth(treeNode,0));
         System.out.println();
-        maxDepth(node,0);
+        maxDepth(treeNode,0);
         System.out.println("final value ::: "+finalValue);
-        maxDepth(Node.createBinaryTree3(), 0);
+        maxDepth(TreeNode.createBinaryTree3(), 0);
         System.out.println("final value ::: "+finalValue);
-        maxDepth(Node.createBinaryTree3(), 0);
+        maxDepth(TreeNode.createBinaryTree3(), 0);
         System.out.println("final value ::: "+finalValue);
 
     }

@@ -1,17 +1,15 @@
 package tree.medium;
 
-import tree.Node;
+import tree.TreeNode;
 
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 
 public class ZigZagOFTree {
 
 
-    private static void zigZagOfTree(Node root) {
-        LinkedList<Node> q1 = new LinkedList<>();
-        LinkedList<Node> q2 = new LinkedList<>();
+    private static void zigZagOfTree(TreeNode root) {
+        LinkedList<TreeNode> q1 = new LinkedList<>();
+        LinkedList<TreeNode> q2 = new LinkedList<>();
         if (root == null) {
             return;
         }
@@ -21,26 +19,26 @@ public class ZigZagOFTree {
                 break;
             }
             while (!q1.isEmpty()) {
-                Node node = q1.removeLast();
-                System.out.println(node.data);
-                if (node.right != null)
-                    q2.add(node.right);
-                if (node.left != null)
-                    q2.add(node.left);
+                TreeNode treeNode = q1.removeLast();
+                System.out.println(treeNode.val);
+                if (treeNode.right != null)
+                    q2.add(treeNode.right);
+                if (treeNode.left != null)
+                    q2.add(treeNode.left);
             }
             while(!q2.isEmpty()){
-                Node node = q2.removeLast();
-                System.out.println(node.data);
-                if (node.left != null)
-                    q1.add(node.left);
-                if (node.right != null)
-                    q1.add(node.right);
+                TreeNode treeNode = q2.removeLast();
+                System.out.println(treeNode.val);
+                if (treeNode.left != null)
+                    q1.add(treeNode.left);
+                if (treeNode.right != null)
+                    q1.add(treeNode.right);
             }
         }
 
     }
 
     public static void main(String[] args) {
-        zigZagOfTree(Node.createBinaryTree2());
+        zigZagOfTree(TreeNode.createBinaryTree2());
     }
 }

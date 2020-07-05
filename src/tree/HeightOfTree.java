@@ -4,12 +4,12 @@ import java.util.LinkedList;
 
 public class HeightOfTree {
 
-    public static int height(Node root) {
+    public static int height(TreeNode root) {
         // Write your code here.
         int height=0;
         boolean isProcessingDone=false;
-        LinkedList<Node> stack= new LinkedList<>();
-        LinkedList<Node> queue= new LinkedList<>();
+        LinkedList<TreeNode> stack= new LinkedList<>();
+        LinkedList<TreeNode> queue= new LinkedList<>();
 
         if(root!=null){
             stack.addLast(root);
@@ -21,13 +21,13 @@ public class HeightOfTree {
                 queue.addLast(stack.removeLast());
             }
             while(!queue.isEmpty()){
-                Node node =queue.removeFirst();
-                System.out.print(node.data + " ");
-                if(node!=null){
-                    if(node.left!=null)
-                        stack.addLast(node.left);
-                    if(node.right!=null)
-                        stack.addLast(node.right);
+                TreeNode treeNode =queue.removeFirst();
+                System.out.print(treeNode.val + " ");
+                if(treeNode !=null){
+                    if(treeNode.left!=null)
+                        stack.addLast(treeNode.left);
+                    if(treeNode.right!=null)
+                        stack.addLast(treeNode.right);
 
                 }
 
@@ -43,7 +43,7 @@ public class HeightOfTree {
     }
 
     public static void main(String[] args) {
-        int height =height(Node.createBinaryTree());
+        int height =height(TreeNode.createBinaryTree());
         System.out.println(height);
     }
 }

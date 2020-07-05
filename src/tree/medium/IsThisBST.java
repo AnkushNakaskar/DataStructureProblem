@@ -1,14 +1,14 @@
 package tree.medium;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class IsThisBST {
 
-    static boolean checkBST(Node root) {
+    static boolean checkBST(TreeNode root) {
         if(root!=null){
-            if(root.left!=null && root.left.data>root.data){
+            if(root.left!=null && root.left.val >root.val){
                 return false;
-            }else if(root.left!=null && root.right.data<root.data){
+            }else if(root.left!=null && root.right.val <root.val){
                 return false;
             }
             return checkBST(root.left) && checkBST(root.right);
@@ -16,6 +16,6 @@ public class IsThisBST {
         return true;
     }
     public static void main(String[] args) {
-        System.out.println(checkBST(Node.createNotBinarySearchTree()));
+        System.out.println(checkBST(TreeNode.createNotBinarySearchTree()));
     }
 }

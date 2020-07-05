@@ -22,7 +22,7 @@ public class HeapSort
         }
     }
 
-    // To heapify a subtree rooted with node i which is
+    // To heapify a subtree rooted with treeNode i which is
     // an index in arr[]. n is size of heap
     void heapify(int arr[], int n, int i)
     {

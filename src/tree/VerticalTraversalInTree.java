@@ -7,18 +7,18 @@ import java.util.TreeMap;
 
 public class VerticalTraversalInTree {
     static class QueueObj {
-        public Node node;
+        public TreeNode treeNode;
         public Integer hd;
 
-        QueueObj(Node node, int hd) {
-            this.node = node;
+        QueueObj(TreeNode treeNode, int hd) {
+            this.treeNode = treeNode;
             this.hd = hd;
         }
     }
 
-    public static void verticalView(Node root) {
+    public static void verticalView(TreeNode root) {
         Queue<QueueObj> queue = new LinkedList<>();
-        TreeMap<Integer, List<Node>> map = new TreeMap<>();
+        TreeMap<Integer, List<TreeNode>> map = new TreeMap<>();
         if (root == null) {
             return;
         } else {
@@ -27,30 +27,30 @@ public class VerticalTraversalInTree {
         while (!queue.isEmpty()) {
             QueueObj queueObj = queue.poll();
             if (map.containsKey(queueObj.hd)) {
-                map.get(queueObj.hd).add(queueObj.node);
+                map.get(queueObj.hd).add(queueObj.treeNode);
             } else {
-                List<Node> list = new LinkedList<>();
-                list.add(queueObj.node);
+                List<TreeNode> list = new LinkedList<>();
+                list.add(queueObj.treeNode);
                 map.put(queueObj.hd, list);
             }
-            if (queueObj.node.left != null) {
-                queue.add(new QueueObj(queueObj.node.left, queueObj.hd - 1));
+            if (queueObj.treeNode.left != null) {
+                queue.add(new QueueObj(queueObj.treeNode.left, queueObj.hd - 1));
             }
-            if (queueObj.node.right != null) {
-                queue.add(new QueueObj(queueObj.node.right, queueObj.hd + 1));
+            if (queueObj.treeNode.right != null) {
+                queue.add(new QueueObj(queueObj.treeNode.right, queueObj.hd + 1));
             }
 
         }
         map.forEach((k, v) -> {
             v.stream().forEach((n) -> {
-                System.out.print(n.data + " ");
+                System.out.print(n.val + " ");
             });
             System.out.print("||");
         });
     }
 
     public static void main(String[] args) {
-        verticalView(Node.createBinaryTree3());
+        verticalView(TreeNode.createBinaryTree3());
     }
 
 }

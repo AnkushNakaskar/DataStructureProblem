@@ -19,18 +19,18 @@ import java.util.TreeMap;
 public class TopViewTree {
 
     static class QueueObj {
-        public Node node;
+        public TreeNode treeNode;
         public Integer hd;
 
-        QueueObj(Node node, int hd) {
-            this.node = node;
+        QueueObj(TreeNode treeNode, int hd) {
+            this.treeNode = treeNode;
             this.hd = hd;
         }
     }
 
-    public static void topView(Node root) {
+    public static void topView(TreeNode root) {
         Queue<QueueObj> queue = new LinkedList<>();
-        TreeMap<Integer, Node> map = new TreeMap<>();
+        TreeMap<Integer, TreeNode> map = new TreeMap<>();
         if (root == null) {
             return;
         } else {
@@ -39,40 +39,40 @@ public class TopViewTree {
         while (!queue.isEmpty()) {
             QueueObj object = queue.poll();
             if (!map.containsKey(object.hd)) {
-                map.put(object.hd, object.node);
+                map.put(object.hd, object.treeNode);
             }
-            if (object.node.left != null) {
-                queue.add(new QueueObj(object.node.left, object.hd - 1));
+            if (object.treeNode.left != null) {
+                queue.add(new QueueObj(object.treeNode.left, object.hd - 1));
             }
-            if (object.node.right != null) {
-                queue.add(new QueueObj(object.node.right, object.hd + 1));
+            if (object.treeNode.right != null) {
+                queue.add(new QueueObj(object.treeNode.right, object.hd + 1));
             }
         }
         map.forEach((k,y)->{
-            System.out.print(y.data);
+            System.out.print(y.val);
         });
     }
-    public static void levelOrder(Node root) {
+    public static void levelOrder(TreeNode root) {
         if(root==null){
             return;
         }else{
-            Queue<Node> queue =new LinkedList<>();
+            Queue<TreeNode> queue =new LinkedList<>();
             queue.add(root);
             while (!queue.isEmpty()){
-                Node node =queue.poll();
-                System.out.print(node.data+" ");
-                if(node.left!=null){
-                    queue.add(node.left);
+                TreeNode treeNode =queue.poll();
+                System.out.print(treeNode.val +" ");
+                if(treeNode.left!=null){
+                    queue.add(treeNode.left);
                 }
-                if(node.right!=null){
-                    queue.add(node.right);
+                if(treeNode.right!=null){
+                    queue.add(treeNode.right);
                 }
             }
         }
     }
 
     public static void main(String[] args) {
-        levelOrder(Node.createBinaryTree3());
+        levelOrder(TreeNode.createBinaryTree3());
     }
 
 }

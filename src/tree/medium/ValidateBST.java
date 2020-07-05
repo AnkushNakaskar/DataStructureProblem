@@ -1,15 +1,15 @@
 package tree.medium;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class ValidateBST {
-    public static boolean validate(Node root) {
+    public static boolean validate(TreeNode root) {
         if (root != null) {
 
-            if (root.left != null && root.data < root.left.data) {
+            if (root.left != null && root.val < root.left.val) {
                 return false;
             }
-            if (root.right != null && root.data > root.right.data) {
+            if (root.right != null && root.val > root.right.val) {
                 return false;
             }
             if(!validate(root.left) || !validate(root.right)){
@@ -20,8 +20,8 @@ public class ValidateBST {
     }
 
     public static void main(String[] args) {
-        System.out.println(validate(Node.createBinaryTree3()));
-        System.out.println(validate(Node.createNotBinarySearchTree()));
+        System.out.println(validate(TreeNode.createBinaryTree3()));
+        System.out.println(validate(TreeNode.createNotBinarySearchTree()));
 
     }
 }
