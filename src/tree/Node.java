@@ -115,6 +115,7 @@ public class Node {
         root.left.right.right.right = new Node(6);
 
         root.right = new Node(9);
+        root.right.right=new Node(10);
 
         return root;
     }
