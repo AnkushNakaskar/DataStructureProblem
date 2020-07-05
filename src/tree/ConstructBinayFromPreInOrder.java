@@ -27,6 +27,7 @@ public class ConstructBinayFromPreInOrder {
         }
         root.left=buildTree(preStart+1,inStart,inIndex-1,preorder,inorder);
         root.right=buildTree(preStart+inIndex-inStart+1,inIndex+1,inEnd,preorder,inorder);
+        //preStart+inIndex-inStart+1 : Focus on this formula, Get pen and paper , try how inIndex will be useful to find out right child in pre-order
         return root;
     }
     public static void main(String[] args) {

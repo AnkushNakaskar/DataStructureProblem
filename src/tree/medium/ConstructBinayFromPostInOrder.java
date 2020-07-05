@@ -28,6 +28,7 @@ public class ConstructBinayFromPostInOrder {
         }
         root.right =buildTree(postEnd-1,inEnd,inIndex+1,postorder,inorder);
         root.left =buildTree(postEnd-inEnd+inIndex-1,inIndex-1,inStart,postorder,inorder);
+        //postEnd-inEnd+inIndex-1 : Focus on this formula, Get pen and paper , try how inIndex will be usefull to find out left child in pre-order
         return root;
     }
     public static void main(String[] args) {
