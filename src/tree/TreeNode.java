@@ -26,6 +26,21 @@ public class TreeNode {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TreeNode treeNode = (TreeNode) o;
+
+        return val == treeNode.val;
+    }
+
+    @Override
+    public int hashCode() {
+        return val;
+    }
+
+    @Override
     public String toString() {
         return "TreeNode{" +
                 "data=" + val +
@@ -89,7 +104,7 @@ public class TreeNode {
         root.right.right = new TreeNode(24);
         root.right.right.left = new TreeNode(23);
         root.right.right.right = new TreeNode(25);
-//        root.right.right.right.right = new TreeNode(26);
+        root.right.right.right.right = new TreeNode(26);
 
         return root;
     }
