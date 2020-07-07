@@ -6,7 +6,7 @@ public class TotalUnigueBST {
 
     /*Calculate for n=4
     initial array [] =[1,1,2,5,0]
-    we have to fill 0= for 4
+    we have to fill 0= for position 4
     when i=4,j=1
     0+(5*1) = (a[4]+(a[4-1]*a[1-1]) =5
     5+(2*1) =(a[4]+(a[4-2]*a[2-1]) =5+2=7

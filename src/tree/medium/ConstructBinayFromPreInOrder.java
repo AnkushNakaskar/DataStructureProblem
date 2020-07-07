@@ -1,6 +1,7 @@
-package tree;
+package tree.medium;
 
 
+import tree.TreeNode;
 
 public class ConstructBinayFromPreInOrder {
     public static TreeNode buildTree(int[] preorder, int[] inorder) {

@@ -8,7 +8,7 @@ public class IsThisBST {
         if(root!=null){
             if(root.left!=null && root.left.val >root.val){
                 return false;
-            }else if(root.left!=null && root.right.val <root.val){
+            }else if(root.right!=null && root.right.val <root.val){
                 return false;
             }
             return checkBST(root.left) && checkBST(root.right);
@@ -16,6 +16,8 @@ public class IsThisBST {
         return true;
     }
     public static void main(String[] args) {
+
         System.out.println(checkBST(TreeNode.createNotBinarySearchTree()));
+        System.out.println(checkBST(TreeNode.createBinaryTree3()));
     }
 }
